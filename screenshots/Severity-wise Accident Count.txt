@@ -1,0 +1,10 @@
+(base) PS C:\Users\Asus\Desktop\BDA_Traffic_Project> hdfs dfs -cat /BDA_Traffic_Project/analytics/severity/part-r-00000
+1       9733
+2       1193797
+3       217086
+4       64819
+(base) PS C:\Users\Asus\Desktop\BDA_Traffic_Project> $counts = hdfs dfs -cat /BDA_Traffic_Project/analytics/severity/part-r-00000 |
+>> ForEach-Object { [long](($_ -split '\s+')[1]) }
+(base) PS C:\Users\Asus\Desktop\BDA_Traffic_Project> 
+(base) PS C:\Users\Asus\Desktop\BDA_Traffic_Project> ($counts | Measure-Object -Sum).Sum
+1485435

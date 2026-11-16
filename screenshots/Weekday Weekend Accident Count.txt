@@ -1,0 +1,8 @@
+(base) PS C:\Users\Asus\Desktop\BDA_Traffic_Project> hdfs dfs -cat /BDA_Traffic_Project/analytics/weekday_weekend/part-r-00000
+Weekday 1119142
+Weekend 366293
+(base) PS C:\Users\Asus\Desktop\BDA_Traffic_Project> $counts = hdfs dfs -cat /BDA_Traffic_Project/analytics/weekday_weekend/part-r-00000 |
+>> ForEach-Object { [long](($_ -split '\s+')[1]) }
+(base) PS C:\Users\Asus\Desktop\BDA_Traffic_Project> 
+(base) PS C:\Users\Asus\Desktop\BDA_Traffic_Project> ($counts | Measure-Object -Sum).Sum
+1485435
