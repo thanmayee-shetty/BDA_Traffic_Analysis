@@ -1,0 +1,62 @@
+(base) PS C:\Users\Asus\Desktop\BDA_Traffic_Project> hdfs dfs -cat /BDA_Traffic_Project/analytics/state/part-r-00000 |
+>> ForEach-Object {
+>>     $parts = $_ -split '\s+'
+>>     [PSCustomObject]@{
+>>         State = $parts[0]
+>>         Accidents = [long]$parts[1]
+>>     }
+>> } |
+>> Sort-Object Accidents -Descending |
+>> Format-Table -AutoSize
+
+State Accidents
+----- ---------
+CA       416869
+FL       148056
+TX        97175
+NY        70381
+SC        63381
+PA        63369
+VA        56662
+NC        49843
+MN        43937
+OR        43818
+AZ        32365
+MI        32170
+GA        31645
+MD        30560
+TN        28191
+IL        26812
+NJ        26669
+WA        24518
+LA        22859
+UT        18673
+CT        14930
+AL        14686
+CO        14494
+OH        13785
+MO        13592
+IN        11723
+OK         9221
+MT         8491
+MA         6216
+AR         5468
+WI         5077
+IA         4942
+NV         4119
+KY         3945
+WV         3748
+DC         3652
+KS         3525
+DE         2514
+ID         2372
+NE         2334
+MS         1987
+RI         1561
+NH         1351
+NM         1191
+WY         1039
+ND          904
+ME          377
+VT          126
+SD          112
